@@ -92,9 +92,9 @@ MaxSingleItem = false
 
     function TeleportTest()
         while GetCharacterCondition(27) do 
-            yield("/wait 1") 
+            yield("/wait 3") 
         end
-        yield("/wait 1")
+        yield("/wait 3")
         while GetCharacterCondition(45) or GetCharacterCondition(51) do 
             yield("/wait 3") 
         end
@@ -102,11 +102,11 @@ MaxSingleItem = false
 
     function AetheryteTeleport()
         while GetCharacterCondition(32) do
-            yield("/wait 1")
+            yield("/wait 3")
         end
-        yield("/wait 1")
+        yield("/wait 3")
         while GetCharacterCondition(45) or GetCharacterCondition(51) do
-            yield("/wait 1") 
+            yield("/wait 3") 
         end
     end
 
@@ -117,15 +117,15 @@ MaxSingleItem = false
     end
 
     function PathFinding()
-        yield("/wait 0.2")
+        yield("/wait 3")
         while PathfindInProgress() do
-            yield("/wait 0.5")
+            yield("/wait 3")
         end
     end
 
     function DeliverooEnable()
         if DeliverooIsTurnInRunning() == false then
-            yield("/wait 1")
+            yield("/wait 3")
             yield("/deliveroo enable")
         end
     end
@@ -161,14 +161,14 @@ MaxSingleItem = false
 
     while IsInZone(478) == false and GetCharacterCondition(27) == false do
         yield("/tp Idyllshire")
-        yield("/wait 1")
+        yield("/wait 3")
     end
 
     TeleportTest()
 
     if IsInZone(478) == false and GetCharacterCondition(27) == false then
         yield("/echo Hmm.... either you moved, or the teleport failed, lets try that again")
-        yield("/wait 0.5")
+        yield("/wait 3")
         goto IdyllshireTurnin
     end
 
@@ -177,13 +177,13 @@ MaxSingleItem = false
         if Distance_Test > 1 then
             while GetCharacterCondition(4, false) do
                 yield('/gaction "Mount Roulette"')
-                yield("/wait 0.3")
+                yield("/wait 3")
                 while IsPlayerCasting() do  
-                    yield("/wait 0.1")
+                    yield("/wait 3")
                 end
-                yield("/wait 2")
+                yield("/wait 3")
             end
-            yield("/wait 0.5")
+            yield("/wait 3")
             yield("/vnavmesh moveto -19.277 211 -36.076")
         end
     end
@@ -420,13 +420,13 @@ MaxSingleItem = false
 ::GrandCompanyTurnin::
 
     TeleportToGCTown()
-    yield("/wait 5.0")
+    yield("/wait 7")
 
     TeleportTest()
 
     if IsInZone(478) == true and GetCharacterCondition(27) == false then
         yield("/echo Hmm.... either you moved, or the teleport failed, lets try that again")
-        yield("/wait 1")
+        yield("/wait 3")
         goto GrandCompanyTurnin
     end
 
